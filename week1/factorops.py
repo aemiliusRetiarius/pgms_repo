@@ -26,7 +26,8 @@ print(cpd_joint_mar)
 
 ##################
 
-cpd_joint_mar_x = cpd_joint_mar.reduce([('X', 1)])
+cpd_joint_mar_x = cpd_joint_mar.reduce([('X', 1)], inplace=False)
 
+print("Marginalized Joint Distribution with X=1:")
 print(cpd_joint_mar_x)
 
