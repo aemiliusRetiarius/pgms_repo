@@ -9,3 +9,8 @@ disc_joint = (disc_bit_4.product(disc_bit_5, inplace=False)).product(disc_bit_6,
 disc_joint.normalize()
 
 print(disc_joint)
+
+disc_joint.reduce([('b0', 1), ('b1', 0), ('b2', 1), ('b3', 0)])
+disc_joint.normalize()
+
+print(disc_joint)
