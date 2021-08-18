@@ -1,5 +1,3 @@
-#TODO continuous hamming correction
-
 import numpy as np
 import math
 from pgmpy.factors.discrete import DiscreteFactor
