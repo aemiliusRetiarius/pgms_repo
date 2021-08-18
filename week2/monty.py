@@ -66,4 +66,12 @@ cpd_joint_mar_c_obs.normalize()
 print("Reduced Distribution for I (M observed):")
 print(cpd_joint_mar_c_obs)
 
-
+cpd_joint_r.reduce([('I', 1)])
+cpd_joint_r.normalize()
+print(cpd_joint_r)
+cpd_joint_r.marginalize(['M'])
+cpd_joint_r.normalize()
+cpd_joint_r.marginalize(['C'])
+cpd_joint_r.normalize()
+print("Reduced Distribution for R:")
+print(cpd_joint_r)
