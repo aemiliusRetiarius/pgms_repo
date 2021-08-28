@@ -181,4 +181,232 @@ int main(int, char *argv[]) {
         )
     );
 
+    rcptr<Factor> M07(
+        uniqptr<DT>(
+            new DT({B0}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M70(
+        uniqptr<DT>(
+            new DT({B0}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M17(
+        uniqptr<DT>(
+            new DT({B1}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M71(
+        uniqptr<DT>(
+            new DT({B1}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M27(
+        uniqptr<DT>(
+            new DT({B2}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M72(
+        uniqptr<DT>(
+            new DT({B2}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M47(
+        uniqptr<DT>(
+            new DT({B4}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M74(
+        uniqptr<DT>(
+            new DT({B4}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M38(
+        uniqptr<DT>(
+            new DT({B3}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M83(
+        uniqptr<DT>(
+            new DT({B3}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M58(
+        uniqptr<DT>(
+            new DT({B5}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M85(
+        uniqptr<DT>(
+            new DT({B0}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M69(
+        uniqptr<DT>(
+            new DT({B6}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M96(
+        uniqptr<DT>(
+            new DT({B6}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M89(
+        uniqptr<DT>(
+            new DT({B3}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M98(
+        uniqptr<DT>(
+            new DT({B3}, {bit_domain}, 0.0,
+                {
+                    {{0}, 1.0},
+                    {{1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M78(
+        uniqptr<DT>(
+            new DT({B0,B2}, {bit_domain,bit_domain}, 0.0,
+                {
+                    {{0,0}, 1.0},
+                    {{0,1}, 1.0},
+                    {{1,0}, 1.0},
+                    {{1,1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M87(
+        uniqptr<DT>(
+            new DT({B0,B2}, {bit_domain,bit_domain}, 0.0,
+                {
+                    {{0,0}, 1.0},
+                    {{0,1}, 1.0},
+                    {{1,0}, 1.0},
+                    {{1,1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M79(
+        uniqptr<DT>(
+            new DT({B0,B1}, {bit_domain,bit_domain}, 0.0,
+                {
+                    {{0,0}, 1.0},
+                    {{0,1}, 1.0},
+                    {{1,0}, 1.0},
+                    {{1,1}, 1.0},
+                }
+            )
+        )
+    );
+
+    rcptr<Factor> M97(
+        uniqptr<DT>(
+            new DT({B0,B1}, {bit_domain,bit_domain}, 0.0,
+                {
+                    {{0,0}, 1.0},
+                    {{0,1}, 1.0},
+                    {{1,0}, 1.0},
+                    {{1,1}, 1.0},
+                }
+            )
+        )
+    );
+
 } // main
