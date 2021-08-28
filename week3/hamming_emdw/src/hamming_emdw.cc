@@ -11,6 +11,8 @@
 #include "prlite_zfstream.hpp"
 
 using namespace std;
+using namespace emdw;
+
 
 /**                            **/
 
@@ -18,22 +20,66 @@ using namespace std;
 
 int main(int, char *argv[]) {
 
-  unsigned seedVal = emdw::randomEngine.getSeedVal();
-  cout <<  seedVal << endl;
-  emdw::randomEngine.setSeedVal(seedVal);
+  // Type Setup
+    typedef unsigned T;
+    typedef DiscreteTable<T> DT;
+    vector<rcptr<Factor>> factors;
+    rcptr<vector<T>> bit_domain (new vector<T>{0,1});
+    enum{B0,B1,B2,B3,B4,B5,B6,R0,R1,R2,R3,R4,R5,R6};
 
-  typedef DiscreteTable<unsigned> DT;
-
-  rcptr< vector<unsigned> > aDom (
-    new vector<unsigned>{0,1});
-
-  rcptr<Factor> F0(
+  factors.push_back(
     uniqptr<DT>(
-      new DT({0,1},{aDom,aDom}) ) );
-  cout << *F0 << endl;
+      new DT({B0, B1, B2, B4},{bit_domain, bit_domain, bit_domain, bit_domain}, 0.0,
+        {
+          {{0,0,0,0},1.0},
+          {{0,0,1,1},1.0},
+          {{0,1,0,1},1.0},
+          {{0,1,1,0},1.0},
+          {{1,0,0,1},1.0},
+          {{1,0,1,0},1.0},
+          {{1,1,0,0},1.0},
+          {{1,1,1,1},1.0},
+        }
+      ) 
+    ) 
+  );
 
-  prlite::gzofstream ofile("tmp.gz", static_cast<std::ios::openmode>(std::ios::out) );
-  ofile << *F0 << endl;
-  ofile.close();
+  factors.push_back(
+    uniqptr<DT>(
+      new DT({B0, B2, B3, B5},{bit_domain, bit_domain, bit_domain, bit_domain}, 0.0,
+        {
+          {{0,0,0,0},1.0},
+          {{0,0,1,1},1.0},
+          {{0,1,0,1},1.0},
+          {{0,1,1,0},1.0},
+          {{1,0,0,1},1.0},
+          {{1,0,1,0},1.0},
+          {{1,1,0,0},1.0},
+          {{1,1,1,1},1.0},
+        }
+      ) 
+    ) 
+  );
+
+  factors.push_back(
+    uniqptr<DT>(
+      new DT({B0, B1, B3, B6},{bit_domain, bit_domain, bit_domain, bit_domain}, 0.0,
+        {
+          {{0,0,0,0},1.0},
+          {{0,0,1,1},1.0},
+          {{0,1,0,1},1.0},
+          {{0,1,1,0},1.0},
+          {{1,0,0,1},1.0},
+          {{1,0,1,0},1.0},
+          {{1,1,0,0},1.0},
+          {{1,1,1,1},1.0},
+        }
+      ) 
+    ) 
+  );
+
+  cout << *(absorb(factors) -> normalize()) << endl;
+
+  cout << *(absorb(factors) -> observeAndReduce(RVIds{B0,B1,B2,B3}, RVVals{T(1),T(0),T(1),T(0)})) << endl;
 
 } // main

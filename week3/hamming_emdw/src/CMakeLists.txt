@@ -34,5 +34,5 @@ include_directories(${GLINEAR_INCLUDE_DIRS} ${EMDW_INCLUDE_DIRS})
 # file(GLOB MY_SOURCES *.cpp)
 
 # My app
-add_executable(my_emdw_app my_emdw_app.cc)
-target_link_libraries(my_emdw_app ${GLINEAR_LIBRARIES} ${BOOST_LIBRARIES} ${EMDW_LIBRARIES} ${PRLITE_LIBRARIES})
+add_executable(hamming_emdw hamming_emdw.cc)
+target_link_libraries(hamming_emdw ${GLINEAR_LIBRARIES} ${BOOST_LIBRARIES} ${EMDW_LIBRARIES} ${PRLITE_LIBRARIES})
