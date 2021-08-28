@@ -409,4 +409,37 @@ int main(int, char *argv[]) {
         )
     );
 
+    // C0 = C0 -> observeAndReduce(RVIds{R0}, RVVals{T(1)});
+    // cout << *(C0) << endl;
+
+    // observe sequence
+    C0 = C0 -> observeAndReduce(RVIds{R0}, RVVals{T(1)}) -> normalize();
+    C1 = C1 -> observeAndReduce(RVIds{R1}, RVVals{T(0)}) -> normalize();
+    C2 = C2 -> observeAndReduce(RVIds{R2}, RVVals{T(1)}) -> normalize();
+    C3 = C3 -> observeAndReduce(RVIds{R3}, RVVals{T(0)}) -> normalize();
+    C4 = C4 -> observeAndReduce(RVIds{R4}, RVVals{T(1)}) -> normalize();
+    C5 = C5 -> observeAndReduce(RVIds{R5}, RVVals{T(0)}) -> normalize();
+    C6 = C6 -> observeAndReduce(RVIds{R6}, RVVals{T(1)}) -> normalize();
+
+    // send messages from leaves
+    M07 = C0;
+    M17 = C1;
+    M27 = C2;
+    M47 = C4;
+    M38 = C3;
+    M58 = C5;
+    M69 = C6;
+
+    // anti-clockwise
+    M78 = C7 -> absorb({M07, M17, M27, M47, M97}) -> marginalize(RVIds{B0, B2}) -> normalize();
+    M89 = C8 -> absorb({M38, M58, M78}) -> marginalize(RVIds{B3}) -> normalize();
+    M97 = C9 -> absorb({M69, M89}) -> marginalize(RVIds{B0, B1}) -> normalize();
+
+    //clockwise
+    M79 = C7 -> absorb({M07, M17, M27, M47, M87}) -> marginalize(RVIds{B0, B1}) -> normalize();
+    M98 = C9 -> absorb({M69, M79}) -> marginalize(RVIds{B3}) -> normalize();
+    M87 = C8 -> absorb({M38, M58, M98}) -> marginalize(RVIds{B0, B2}) -> normalize();
+
+    cout << *(C7 -> absorb({M07, M17, M27, M47, M87, M97}) -> normalize()) << endl;
+    cout << *(C8 -> absorb({M38, M58, M78, M98}) -> normalize()) << endl;
 } // main
