@@ -444,8 +444,23 @@ int main(int, char *argv[]) {
     M70 = C7 -> absorb({M17, M27, M47,M87, M97}) -> marginalize(RVIds{B0}) -> normalize();
 
     cout << *(C7 -> absorb({M07, M17, M27, M47, M87, M97}) -> normalize()) << endl;
-    cout << *(C8 -> absorb({M38, M58, M78, M98}) -> normalize()) << endl;
-    cout << *(C9 -> absorb({M69, M79, M89})) -> normalize() << endl;
+    //cout << *(C8 -> absorb({M38, M58, M78, M98}) -> normalize()) << endl;
+    //cout << *(C9 -> absorb({M69, M79, M89})) -> normalize() << endl;
 
-    cout << *(C0 -> absorb({M70})) -> normalize() << endl;
+    //cout << *(C0 -> absorb({M70})) -> normalize() << endl;
+
+    // anti-clockwise #2
+    M78 = C7 -> absorb({M07, M17, M27, M47, M97}) -> marginalize(RVIds{B0, B2}) -> normalize();
+    M89 = C8 -> absorb({M38, M58, M78}) -> marginalize(RVIds{B3}) -> normalize();
+    M97 = C9 -> absorb({M69, M89}) -> marginalize(RVIds{B0, B1}) -> normalize();
+
+    //clockwise #2
+    M79 = C7 -> absorb({M07, M17, M27, M47, M87}) -> marginalize(RVIds{B0, B1}) -> normalize();
+    M98 = C9 -> absorb({M69, M79}) -> marginalize(RVIds{B3}) -> normalize();
+    M87 = C8 -> absorb({M38, M58, M98}) -> marginalize(RVIds{B0, B2}) -> normalize();
+
+    // toward leaves #2
+    M70 = C7 -> absorb({M17, M27, M47,M87, M97}) -> marginalize(RVIds{B0}) -> normalize();
+
+    cout << *(C7 -> absorb({M07, M17, M27, M47, M87, M97}) -> normalize()) << endl;
 } // main
